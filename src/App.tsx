@@ -109,12 +109,20 @@ const App: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Log the form data to console
-      console.log('Contact form submitted:', contactForm);
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_jf53s9g', // Service ID
+        'template_hjcliqn', // Template ID
+        {
+          from_name: contactForm.name,
+          from_email: contactForm.email,
+          interest: contactForm.interest,
+          message: contactForm.message,
+        },
+        '8oNITAPVE7U-PGqJe' // Public Key
+      );
 
+      console.log('Email sent successfully:', result);
       setSubmitStatus('success');
       setContactForm({
         name: '',
@@ -124,7 +132,7 @@ const App: React.FC = () => {
       });
       
     } catch (error) {
-      console.error('Form submission failed:', error);
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
