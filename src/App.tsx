@@ -110,16 +110,25 @@ const App: React.FC = () => {
 
     try {
       // Send email using EmailJS
+      const templateParams = {
+        from_name: contactForm.name,
+        from_email: contactForm.email,
+        message: contactForm.message,
+        to_name: 'Othentk Team',
+      };
+
+      console.log('Sending email with params:', templateParams);
+      console.log('Environment variables:', {
+        serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      });
+      
       const result = await emailjs.send(
-        'service_jf53s9g', // Service ID
-        'template_hjcliqn', // Template ID
-        {
-          from_name: contactForm.name,
-          from_email: contactForm.email,
-          interest: contactForm.interest,
-          message: contactForm.message,
-        },
-        '8oNITAPVE7U-PGqJe' // Public Key
+        process.env.REACT_APP_EMAILJS_SERVICE_ID!, // Service ID
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!, // Template ID
+        templateParams,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY! // Public Key
       );
 
       console.log('Email sent successfully:', result);
@@ -133,6 +142,7 @@ const App: React.FC = () => {
       
     } catch (error) {
       console.error('Email sending failed:', error);
+      console.error('Error details:', (error as any)?.text || (error as any)?.message || error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
