@@ -4,9 +4,13 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@gsap/react": "^2.1.2",
     "@types/node": "^16.18.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "gsap": "^3.13.0",
+    "mathjs": "^14.8.1",
+    "motion": "^12.23.22",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-scripts": "5.0.1",

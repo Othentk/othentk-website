@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './App.css';
+import BlurText from './blocks/TextAnimations/BlurText/BlurText';
 import FedTechLogo from './assets/images/FedTech_Logo_RegTM_RGB-300x40-1.png';
 import NSINLogo from './assets/images/NSIN_MasterLogo_RGB-300x156-1.png';
 import AkalpitPhoto from './assets/images/akalpit_pfp.jpg';
@@ -182,8 +183,30 @@ const App: React.FC = () => {
           ref={(el) => setSectionRef(el, 'home')}
         >
           <div className="hero-content">
-            <h1>Critical Connectivity. Simplified. Secured.</h1>
-            <p>Engineering the future of edge connectivity through innovative network aggregation and managed services</p>
+            <BlurText 
+              text="Critical Connectivity. Simplified. Secured."
+              className="hero-title"
+              animateBy="words"
+              direction="top"
+              delay={80}
+              stepDuration={0.25}
+              threshold={0.1}
+              animationFrom={undefined}
+              animationTo={undefined}
+              onAnimationComplete={undefined}
+            />
+            <BlurText 
+              text="Engineering the future of edge connectivity through innovative network aggregation and managed services"
+              className="hero-subtitle"
+              animateBy="words"
+              direction="top"
+              delay={60}
+              stepDuration={0.2}
+              threshold={0.1}
+              animationFrom={undefined}
+              animationTo={undefined}
+              onAnimationComplete={undefined}
+            />
             <button 
               className="cta-button"
               onClick={() => scrollToSection('offering')}
