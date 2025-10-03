@@ -489,9 +489,6 @@ const App: React.FC = () => {
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
-            <div className="footer-logo">
-              <h2 id="footer-logo">Othentk</h2>
-            </div>
             <p>Critical Connectivity. Simplified. Secured.</p>
             <div className="footer-links">
               <a href="https://www.linkedin.com/company/othentk" target="_blank" rel="noopener noreferrer">LinkedIn</a>
