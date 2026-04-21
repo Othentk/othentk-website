@@ -183,6 +183,7 @@ const App: React.FC = () => {
           ref={(el) => setSectionRef(el, 'home')}
         >
           <div className="hero-content">
+            <p className="hero-kicker">Field-ready network intelligence</p>
             <BlurText 
               text="Critical Connectivity. Simplified. Secured."
               className="hero-title"
@@ -224,8 +225,8 @@ const App: React.FC = () => {
           <div className="container">
             <h2>What We Offer</h2>
             <div className="offering-grid">
-              <div className="offering-card">
-                <div className="offering-icon">🛡️</div>
+              <div className="offering-card offering-card-primary">
+                <div className="offering-icon offering-icon-badge">ANCHOR</div>
                 <h3>ANCHOR Router</h3>
                 <p>Security-first enterprise router designed for organizations requiring maximum protection. ANCHOR provides advanced threat protection, secure network aggregation, and compliance features for critical operations and inter-agency collaboration in high-security environments.</p>
                 <ul className="feature-list">
@@ -235,8 +236,8 @@ const App: React.FC = () => {
                   <li>Critical infrastructure protection</li>
                 </ul>
               </div>
-              <div className="offering-card">
-                <div className="offering-icon">⚡</div>
+              <div className="offering-card offering-card-secondary">
+                <div className="offering-icon offering-icon-badge">netRAPTR</div>
                 <h3>netRAPTR Router</h3>
                 <p>High-performance home router optimized for gaming, streaming, and speed. Delivers ultra-fast, stable connectivity for competitive gaming and seamless 4K streaming with intelligent bandwidth management.</p>
                 <ul className="feature-list">
@@ -246,8 +247,8 @@ const App: React.FC = () => {
                   <li>Home network management</li>
                 </ul>
               </div>
-              <div className="offering-card">
-                <div className="offering-icon">🔧</div>
+              <div className="offering-card offering-card-tertiary">
+                <div className="offering-icon offering-icon-badge">MSSP</div>
                 <h3>Managed Services</h3>
                 <p>Comprehensive edge device detection, observability, and Zero Trust tooling implementation for complete network management and monitoring.</p>
                 <ul className="feature-list">
@@ -293,26 +294,39 @@ const App: React.FC = () => {
             
             <div className="how-it-works">
               <h3>How it Works</h3>
-              <div className="features-grid">
-                <div className="feature-card">
-                  <h4>Intelligent Multi-Link Aggregation</h4>
-                  <p>Seamlessly combines multiple network connections for optimal performance</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Dynamic Path Optimization & Fail-over</h4>
-                  <p>Automatically routes traffic through the best available paths with instant failover</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Robust Security & Network Segmentation</h4>
-                  <p>Advanced encryption and isolation ensure data protection and compliance</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Simplified Management & MSSP Oversight</h4>
-                  <p>Comprehensive monitoring and control from anywhere, anytime</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Ensures Operational Readiness</h4>
-                  <p>Maintains critical operations even in challenging environments</p>
+              <div className="technology-layout">
+                <ol className="technology-flow">
+                  <li className="technology-step">
+                    <span className="technology-index">01</span>
+                    <div className="technology-step-content">
+                      <h4>Intelligent Multi-Link Aggregation</h4>
+                      <p>Seamlessly combines multiple network connections for optimal performance.</p>
+                    </div>
+                  </li>
+                  <li className="technology-step">
+                    <span className="technology-index">02</span>
+                    <div className="technology-step-content">
+                      <h4>Dynamic Path Optimization & Fail-over</h4>
+                      <p>Automatically routes traffic through the best available paths with instant failover.</p>
+                    </div>
+                  </li>
+                  <li className="technology-step">
+                    <span className="technology-index">03</span>
+                    <div className="technology-step-content">
+                      <h4>Robust Security & Network Segmentation</h4>
+                      <p>Advanced encryption and isolation ensure data protection and compliance.</p>
+                    </div>
+                  </li>
+                </ol>
+                <div className="technology-capabilities">
+                  <div className="technology-capability-card">
+                    <h4>Simplified Management & MSSP Oversight</h4>
+                    <p>Comprehensive monitoring and control from anywhere, anytime.</p>
+                  </div>
+                  <div className="technology-capability-card">
+                    <h4>Ensures Operational Readiness</h4>
+                    <p>Maintains critical operations even in challenging environments.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -328,7 +342,8 @@ const App: React.FC = () => {
             <h2>Use Cases</h2>
             <div className="use-cases-grid">
               <div className="use-case-card">
-                <div className="use-case-icon">🏢</div>
+                <p className="use-case-kicker">Enterprise Scenario</p>
+                <div className="use-case-icon use-case-icon-badge">ANCHOR</div>
                 <h3>ANCHOR Router - Enterprise Security Deployment</h3>
                 <p>A defense agency deploys Othentk's ANCHOR router, a robust hardware solution integrated by our team. ANCHOR auto-configures, bonding SATCOM, 5G, and available links through intelligent aggregation. This provides resilient, high-bandwidth connectivity for critical command and control data and operations, ensuring mission readiness with enterprise-grade security and compliance.</p>
                 <div className="use-case-features">
@@ -338,7 +353,8 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="use-case-card">
-                <div className="use-case-icon">🏠</div>
+                <p className="use-case-kicker">Consumer Scenario</p>
+                <div className="use-case-icon use-case-icon-badge">netRAPTR</div>
                 <h3>netRAPTR Router - Home Gaming & Streaming</h3>
                 <p>A competitive gamer easily installs the netRAPTR router into their home network. With its user-friendly setup, netRAPTR simultaneously connects to their fiber broadband and a 5G cellular backup. The router intelligently aggregates these connections, minimizing latency and boosting bandwidth. This deployment ensures an ultra-stable, high-speed, and lag-free gaming experience, perfect for competitive gaming and seamless 4K streaming.</p>
                 <div className="use-case-features">
@@ -362,11 +378,13 @@ const App: React.FC = () => {
             <div className="partners-grid">
               <div className="partner-card">
                 <img src={FedTechLogo} alt="FedTech Logo" className="partner-logo" />
+                <p className="partner-kicker">Innovation Partner</p>
                 <h3>FedTech</h3>
                 <p>Partnering with FedTech to accelerate innovation in federal technology and advance critical infrastructure solutions.</p>
               </div>
               <div className="partner-card">
                 <img src={NSINLogo} alt="NSIN Logo" className="partner-logo" />
+                <p className="partner-kicker">National Security Partner</p>
                 <h3>NSIN</h3>
                 <p>Collaborating with the National Security Innovation Network to develop cutting-edge security and connectivity technologies.</p>
               </div>
